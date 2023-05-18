@@ -1,0 +1,21 @@
+<ul class="heroes">
+    <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectHero"     
+    >
+        <a href="#ni" routerLink="/heroes/detail/{{hero.id}}">        
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <a href="#ni" (click)="onDelete(hero)">        
+             🆑   
+        </a>        
+  </li>
+</ul>  
+
+
+<!-- 
+    LI (click)="onSelect(hero)"
+    
+    <div *ngIf="selectHero.name" class="showdetail">
+    <span>{{selectHero.name }}</span> is my heroe
+    <button (click)="showDetail()">View Details</button>
+</div>  -->

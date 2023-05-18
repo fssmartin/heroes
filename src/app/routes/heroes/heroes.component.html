@@ -1,0 +1,29 @@
+
+
+<ul>
+    <li><a routerLink="anadir">Alta</a></li>
+</ul> 
+
+
+<!-- <app-list 
+    (AuxselectHero)="onSelect($event)" 
+    [heroes]="heroes" >
+</app-list> -->
+
+<div class="wraper">
+    
+    <app-list 
+        (AuxselectHero)="onDelete($event)" 
+        [heroes]="heroes" >
+    </app-list>
+
+    <router-outlet></router-outlet>
+</div>
+ 
+
+
+<!-- 
+    <hr>
+<ng-container *ngIf="selectHero.name">
+    <app-detail  [hero]="selectHero"></app-detail>
+</ng-container> -->

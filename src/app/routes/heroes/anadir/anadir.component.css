@@ -1,0 +1,14 @@
+h4 span{font-size: 25px;}
+
+button{font-family:Verdana, Geneva, Tahoma, sans-serif}
+
+input[type=text]{height: 19px;
+    padding: 0 5px;
+    font-family: verdana;
+}
+
+h2{
+    padding-bottom: 1rem;
+}
+
+p span{font-weight: bold;}

@@ -1,0 +1,17 @@
+<hr>
+
+<div *ngIf="messageService.message.length else nomessages">
+    <h3>Mensajes</h3>
+    <button (click)="messageService.clearMessage()">Clear</button>
+    <ul>
+        <li *ngFor="let mesage of messageService.message">
+            {{mesage}}
+        </li>
+    </ul>
+</div>
+
+
+<ng-template #nomessages>
+    <h3>Mensages</h3>
+    <h5>No hay mensajes todavia</h5>
+</ng-template>

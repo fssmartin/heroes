@@ -1,0 +1,10 @@
+<HR>
+
+<ng-container *ngIf="showAdd">
+    <h2>Añadir Heroe {{hero.name}}</h2>
+    <p><label>Id: <span>{{hero.id}}</span></label></p>
+    <label>Name:
+        <input [(ngModel)]="hero.name" placelhoder="name" type="text" />
+    </label>    
+    <button (click)="addHero()">✍️ Add</button>
+</ng-container>
