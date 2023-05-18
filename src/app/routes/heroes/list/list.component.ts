@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'; 
 import { Input, Output, EventEmitter } from '@angular/core';
-import { Hero } from '../../../moduls/hero.interface'
+import { Hero, Heroo } from '../../../moduls/hero.interface'
 
 @Component({
   selector: 'app-list',
@@ -9,15 +9,38 @@ import { Hero } from '../../../moduls/hero.interface'
 })
 export class ListComponent  implements  OnDestroy {
 
-  @Input() heroes:Hero[]=[{name:'',id:0}];
-  @Output() AuxselectHero = new EventEmitter<Hero>();
+  @Input() heroes:Heroo[]=[];
+
+  @Output() AuxselectHero = new EventEmitter<Heroo>();
   
-  selectHero:Hero={name:'',id:0};
+  selectHero:Heroo={
+    id: 0,
+    name: '',
+    username: '',
+    email: '',
+    address: {
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: '',
+      geo: {
+        lat: '',
+        lng: ''        
+      }       
+    },
+    phone: '',
+    website: '',
+    company: {
+      name: '',
+      catchPhrase: '',
+      bs: ''      
+    }
+  };
 
 
-  onDelete(heroe:Hero):void { 
+  onDelete(heroe:Heroo):void { 
     this.selectHero = heroe;  
-    this.AuxselectHero.emit(this.selectHero); 
+    this.AuxselectHero.emit(heroe); 
   }
   
   // onSelect(heroe:Hero):void { 

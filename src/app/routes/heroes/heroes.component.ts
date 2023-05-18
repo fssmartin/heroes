@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'; 
-import { Hero } from 'src/app/moduls/hero.interface';
+import { Hero, Heroo } from 'src/app/moduls/hero.interface';
 import { HeroService } from 'src/app/services/hero.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -9,18 +10,43 @@ import { Router } from '@angular/router';
 })
 export class HeroesComponent implements OnInit, OnDestroy {
  
-  heroes:Hero[]=[];
+  // heroes:Hero[]=[];
+  heroess:Heroo[]=[];
 
-  selectHero:Hero={
-    name:'',
-    id:0
+  // selectHero:Hero={
+  //   name:'',
+  //   id:0
+  // };
+
+  selectHeroo:Heroo={
+    id: 0,
+    name: '',
+    username: '',
+    email: '',
+    address: {
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: '',
+      geo: {
+        lat: '',
+        lng: ''        
+      }       
+    },
+    phone: '',
+    website: '',
+    company: {
+      name: '',
+      catchPhrase: '',
+      bs: ''      
+    }
   };
 
+  visible:boolean=false;
 
   constructor(
       private heroService:HeroService,
       public router:Router){
-
   }
   
   ngOnInit(): void {
@@ -29,26 +55,29 @@ export class HeroesComponent implements OnInit, OnDestroy {
   
   getHeroes = ()=>{
     this.heroService.getHeroes('Heroes').subscribe(
-      (heroes) => {
-        console.log('actualizo heroes')
-        this.heroes = heroes
+      (heroes) => { 
+        if(heroes.length>0){
+          this.heroess = heroes;
+          this.visible=false;
+        }else{
+          this.visible=true;
+        }
       }
     )
   }
 
-
-  onSelect(hero:Hero):void{
-    //this.selectHero=hero;    
+  onSelect(heroo:Heroo):void{
+    this.selectHeroo=heroo;    
   }
   
-  onDelete = (hero:Hero):void=>{
-    this.selectHero=hero;
-    this.heroes=[];
-    this.heroService.deleteHeroe(hero.id).subscribe(       
-       heroes=>{
-        this.heroes = heroes;
-        this.router.navigate(['/heroes/herovacio']);
-       }
+  onDelete = (heroo:Heroo)=>{
+    this.selectHeroo=heroo;
+    this.heroess=[];
+    this.heroService.deleteHero(heroo.id).subscribe(       
+         heroes=>{
+            this.heroess = heroes;
+            this.router.navigate(['/heroes/herovacio']);
+         }
     )
   }
 

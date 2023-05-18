@@ -21,7 +21,9 @@ const routes: Routes = [
           component: DetailComponent,
         }
       ],
-    }  
+
+    },
+    { path: '**', component: HeroesComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Hero } from 'src/app/moduls/hero.interface';
+import { Hero,Heroo} from 'src/app/moduls/hero.interface';
 import { HeroService } from '../../../services/hero.service';
 import { Router } from '@angular/router';
 @Component({
@@ -10,29 +10,52 @@ import { Router } from '@angular/router';
 export class AnadirComponent  implements OnInit, OnDestroy {
   
   showAdd:boolean=true;
-  hero:Hero={
-    name:'',
-    id:0
-  };
+  // hero:Hero={
+  //   name:'',
+  //   id:0
+  // };
+  hero:Heroo={
+    id: 0,
+    name: '',
+    username: '',
+    email: '',
+    address: {
+      street: '',
+      suite: '',
+      city: '',
+      zipcode: '',
+      geo: {
+        lat: '',
+        lng: ''        
+      }       
+    },
+    phone: '',
+    website: '',
+    company: {
+      name: '',
+      catchPhrase: '',
+      bs: ''      
+    }
+  }
 
   //paramsSubscription: Subscription;
 
   constructor(private heroService: HeroService,
               private router:Router){
 
-    this.getLasHeroe(1);
+    this.getLastHeroe();
 
   }  
 
   ngOnInit() {    
-   // this.getLasHeroe(1);    
+   // this.getLastHeroe();    
   }
 
-  getLasHeroe(cual:number){
+  getLastHeroe(){
     this.hero.name = ""; 
     this.showAdd = true;
 
-    this.heroService.getIdLastHeroe().subscribe(
+    this.heroService.getIdLastHero().subscribe(
       heroId => {
           this.hero.id = heroId
       }     

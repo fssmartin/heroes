@@ -19,7 +19,7 @@ export class DashboardComponent {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes('-- DASH')
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+    // this.heroService.getHeroes('-- DASH')
+    //   .subscribe(heroes => this.heroes = heroes.slice(1, 5));
   }
 }

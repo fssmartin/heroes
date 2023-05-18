@@ -5,3 +5,17 @@ li{list-style: none;padding:10px;}
     display: flex;
     justify-content: space-between;
 }
+
+.notfound{
+    display: none;
+    padding: 20px;
+}
+.notfound.visible{
+    display: block;
+}
+
+.notfound span{
+    color:red;
+    font-size:20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -1,10 +1,10 @@
 <HR>
 
 <div *ngIf="hero">
-    <h2>{{hero.name | uppercase}} Details</h2>
-    <h4>Update User: <span>{{hero.id}}</span></h4>
+    <h2>{{heroo.name | uppercase}} Details</h2>
+    <h4>Update User: <span>{{heroo.id}}</span></h4>
     <label>Name:
-        <input [(ngModel)]="hero.name" placelhoder="name" type="text" />
+        <input [(ngModel)]="heroo.name" placelhoder="name" type="text" />
     </label>    
-    <button (click)="updateHero(hero)">✍️ Update</button>
+    <button (click)="updateHero()">✍️ Update</button>
 </div>

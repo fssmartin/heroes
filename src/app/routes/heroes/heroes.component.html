@@ -1,6 +1,6 @@
 
 
-<ul>
+<ul *ngIf="heroess.length">
     <li><a routerLink="anadir">Alta</a></li>
 </ul> 
 
@@ -12,14 +12,18 @@
 
 <div class="wraper">
     
-    <app-list 
+    <app-list *ngIf="heroess.length > 0" 
         (AuxselectHero)="onDelete($event)" 
-        [heroes]="heroes" >
-    </app-list>
+        [heroes]="heroess" >
+    </app-list> 
 
     <router-outlet></router-outlet>
+
 </div>
  
+<div class="notfound" [ngClass]="{'visible' : visible}">
+    <span >No hay ningun Heroe intenta dar de alta o consulte con su ADMIN</span>
+</div>
 
 
 <!-- 
